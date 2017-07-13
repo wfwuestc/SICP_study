@@ -1,0 +1,21 @@
+#lang planet neil/sicp
+(define (pascal y x)
+  (cond ((= x 1) 1)
+        ((= x y) 1)
+        (else (+ (pascal (- y 1) (- x 1)) (pascal (- y 1) x)))))
+
+(define (display-row r)
+  (define (display-column-iter c)
+    (display (pascal r c))
+    (display " ")
+    (if (< c r)
+        (display-column-iter (+ c 1))))
+  (display-column-iter 1))
+
+(define (display-pascal n)
+  (define (display-row-iter r)
+    (display-row r)
+    (newline)
+    (if (< r n)
+        (display-row-iter (+ r 1))))
+  (display-row-iter 1))
