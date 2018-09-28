@@ -1,6 +1,6 @@
 #lang planet neil/sicp
 (define (product f a b)
-  (mult f a inc b))
+  (mult-iter f a inc b))
 
 (define (mult term a next b)
   (if (> a b)
@@ -30,4 +30,4 @@
 (define (pie n)
   (* (product pie-item 1 n) 4.0))
 
-(pie 5000)
+(pie 10000)
